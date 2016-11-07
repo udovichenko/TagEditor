@@ -20,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/udovichenko/TagEditor/issues"
   },
-  "homepage": "https://github.com/udovichenko/TagEditor"
+  "homepage": "https://github.com/udovichenko/TagEditor",
+  "dependencies": {
+    "autosize": "^3.0.18",
+    "jquery": "^3.1.1",
+    "js-cookie": "^2.1.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rigger": "^0.5.8",
+    "gulp-uglify": "^2.0.0"
+  }
 }
