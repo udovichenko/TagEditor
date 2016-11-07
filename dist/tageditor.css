@@ -1,0 +1,52 @@
+.te-button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: calc(10px + 1vmin - 5px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #d2d5d9;
+  -webkit-transition: .2s;
+  transition: .2s;
+  padding: calc(5px + .5vmin) calc(10px + 1vmin);
+  font-size: 30px;
+  /*width: 50px;*/
+  height: 50px;
+  cursor: pointer;
+  border: 10px solid yellow; }
+
+.te-button:hover {
+  background: #e2e5e9; }
+
+.te-button.active {
+  outline: 3px solid dodgerblue; }
+
+.tags-areas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.tags-count {
+  color: dodgerblue;
+  font-size: 2em;
+  float: right; }
+
+.tags-area {
+  border: 3px solid #d2d5d9;
+  display: block;
+  min-height: 300px;
+  padding: calc(10px + 1vmin);
+  -webkit-box-flex: 50%;
+      -ms-flex: 50% 1 1;
+          flex: 50% 1 1;
+  font-size: 2em;
+  font-weight: 600;
+  margin-right: calc(10px + 3vmin);
+  resize: none; }
+
+.tags-area:last-child {
+  margin-right: 0; }
