@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: #424549;
+}
+
+textarea, input {
+    font-family: "Courier New", monospace;
+    color: #525559;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 0;
+    color: #626569;
+}
+
+.container {
+    padding: calc(20px + 3vmin);
+}

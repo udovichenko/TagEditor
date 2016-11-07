@@ -1,0 +1,25 @@
+.tags-areas {
+    display: flex;
+}
+
+.tags-count {
+    color: dodgerblue;
+    font-size: 2em;
+    float: right;
+}
+
+.tags-area {
+    border: 3px solid #d2d5d9;
+    display: block;
+    min-height: 300px;
+    padding: calc(10px + 1vmin);
+    flex: 50% 1 1;
+    font-size: 2em;
+    font-weight: 600;
+    margin-right: calc(10px + 3vmin);
+    resize: none;
+}
+
+.tags-area:last-child {
+    margin-right: 0;
+}

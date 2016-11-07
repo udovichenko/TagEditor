@@ -6,15 +6,17 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:600&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="demo/css/tageditor.css">
+    <link rel="stylesheet" href="dist/tageditor.css">
+    <link rel="stylesheet" href="demo/css/demo.css">
     <script src="demo/js/libs.js"></script>
     <script src="tageditor.js"></script>
 
     <script>
         $(function() {
-            window.Tags = new TagEditor({
-                textArea: '.tags-text',
-                labelArea: '.tags-label'
+            window.myTagEditor = new TagEditor({
+                ioArea: '._tageditor-io',
+                labelsArea: '._tageditor-labels',
+                controlPanel: '._tageditor__controls'
             });
         });
     </script>
@@ -23,15 +25,23 @@
 
 <div class="container">
     <h1>Easy Tag Editor</h1>
-    <div class="tags-control tags-buttons">
-        <!--<div class="tags-button tags-button-separator tags-comma active">,</div>-->
-        <!--<div class="tags-button tags-button-separator tags-semicolon">;</div>-->
-        <div class="tags-button tags-check">Отформатировать</div>
-        <div class="tags-count"></div>
-    </div>
-    <div class="tags-areas">
-        <textarea name="tags-text" class="tags-text tags-area"></textarea>
-        <!--<textarea name="tags-labels" class="tags-labels tags-area"></textarea>-->
+
+    <div class="te-editor">
+        <div class="te-editor__controls _tageditor__controls">
+            <!--<div class="tags-button tags-button-separator tags-comma active">,</div>-->
+            <!--<div class="tags-button tags-button-separator tags-semicolon">;</div>-->
+            <button class="te-button te-button_check">Отформатировать</button>
+
+            <div class="te-editor__count"></div>
+        </div>
+
+        <div class="te-editor__io">
+            <textarea class="te-area te-textarea _tageditor-io"></textarea>
+        </div>
+
+        <div class="te-editor__labels">
+            <textarea class="te-area _tageditor-labels"></textarea>
+        </div>
     </div>
 </div>
 
