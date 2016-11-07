@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tag Editor</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:600&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="tageditor/tageditor.css">
+    <script src="/bower_components/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/bower_components/autosize/dist/autosize.min.js"></script>
+    <script src="/bower_components/js-cookie/src/js.cookie.js"></script>
+    <script src="tageditor/tageditor.js"></script>
+    <script>
+        $(function() {
+            window.Tags = new TagEditor({
+                textArea: '.tags-text',
+                labelArea: '.tags-label'
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Easy Tag Editor</h1>
+    <div class="tags-control tags-buttons">
+        <!--<div class="tags-button tags-button-separator tags-comma active">,</div>-->
+        <!--<div class="tags-button tags-button-separator tags-semicolon">;</div>-->
+        <div class="tags-button tags-check">Отформатировать</div>
+        <div class="tags-count"></div>
+    </div>
+    <div class="tags-areas">
+        <textarea name="tags-text" class="tags-text tags-area"></textarea>
+        <!--<textarea name="tags-labels" class="tags-labels tags-area"></textarea>-->
+    </div>
+</div>
+
+</body>
+</html>

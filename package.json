@@ -1,0 +1,24 @@
+{
+  "name": "tageditor",
+  "version": "0.0.1",
+  "description": "smart tag editor with drag-n-drop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/udovichenko/TagEditor"
+  },
+  "keywords": [
+    "tag",
+    "editor",
+    "drag-n-drop"
+  ],
+  "author": "udovichenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/udovichenko/TagEditor/issues"
+  },
+  "homepage": "https://github.com/udovichenko/TagEditor"
+}
