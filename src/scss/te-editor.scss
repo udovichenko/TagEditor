@@ -1,3 +1,11 @@
+@import "vars";
+
+
+.te-editor__block {
+    margin-bottom: 1.5em;
+}
+
+
 .tags-areas {
     display: flex;
 }
@@ -9,7 +17,7 @@
 }
 
 .tags-area {
-    border: 3px solid #d2d5d9;
+    border: 3px solid $grey-l;
     display: block;
     min-height: 300px;
     padding: calc(10px + 1vmin);

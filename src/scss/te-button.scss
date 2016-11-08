@@ -6,25 +6,23 @@
 
 .te-button {
     display: inline-flex;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
     justify-content: center;
     margin-right: calc(10px + 1vmin - 5px);
     align-items: center;
     background: #d2d5d9;
     transition: .2s;
-    padding: calc(5px + .5vmin) calc(10px + 1vmin);
+    padding: .5em 1em;
     font-size: 30px;
+    color: $grey-d;
     /*width: 50px;*/
-    height: 50px;
-    cursor: pointer;
-    //color: yellow;
-    border: 10px solid yellow;
-    //border: 10px solid red;
-
+    //height: 50px;
+    border: none;
 }
 
-
 .te-button:hover {
-    background: #e2e5e9;
+    background: #bad5f3;
 }
 
 .te-button.active {

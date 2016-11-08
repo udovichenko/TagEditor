@@ -13,8 +13,8 @@
 
         T.controls = {
             format: {
-                text: 'Отформатировать',
-                action: 'format'
+                text: 'Format',
+                action: 'ioFormat'
             },
             spaceToComma: {
                 text: '_ > ,',
@@ -104,31 +104,50 @@
             T.ioArea.val(text);
         };
 
-        T.ioText = function() {
-            return T.ioArea.val();
+        T.ioText = function(text) {
+            if (typeof text == "undefined") {
+                return T.ioArea.val();
+            } else {
+                return T.ioArea.val(text);
+            }
         };
 
-        T.textFormat = function(text) {
+        T.ioFormat = function() {
+            T.ioText(T.textFormat());
+        };
+
+        T.textFormat = function() {
+            var text = T.ioText();
             if (T.separator == ',') {
                 text = text.replace(/(\;|\,|\n){1,}/g, T.separator);
             }
 
             // removes spaces before separator
             text = text.replace(/ (\,|\;){1,}/g, ",");
+
             // text = text.replace(/ {1,}/g, ",");
 
             // removes double spaces
             text = text.replace(/ {1,}/g, " ");
 
+
+            // add spaces after separator
+            text = text.replace(/(\,|\;){1,}\s{0,}/g, "$1 ")
+
+            // text = text.replace(/ {1,}/g, " ");
+
             return text;
         };
-        
+
         T.spaceToComma = function() {
             //console.log(T.ioArea.val().replace(/(\,)/g, ' '));
 
-            T.separator = ' ';
+            var text = T.ioArea.val().replace(/\s{0,}(\,{1,})\s{0,}/g, ' ');
+            text = text.replace(/\s/g, ', ');
+            T.ioArea.val(text);
+            // T.separator = ' ';
             T.updateTags();
-            T.setSeparator(',');
+            // T.setSeparator(',');
         };
 
         T.setSeparator = function(separator) {
