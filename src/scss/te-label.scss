@@ -3,16 +3,16 @@
 .te-label {
     position: relative;
     float: left;
-    margin: .25em .5em .25em 0;
+    margin: .2em .4em .2em 0;
     list-style-type: none;
-    background: $blue;
-    color: white;
+    background: $blue-l;
+    color: $grey-d;
     display: flex;
     transition: .25s;
 }
 
 .te-label__text {
-    padding: .3em .4em .3em .6em;
+    padding: .3em .3em .3em .6em;
     cursor: grab;
     transition: .25s;
 }
@@ -69,7 +69,9 @@
 
 .te-label_remove-hover,
 .te-label_remove-hover:hover {
+    transition: .15s;
     background: $red;
+    color: white;
 }
 
 .te-label_sortable-chosen {

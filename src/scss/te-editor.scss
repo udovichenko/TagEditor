@@ -1,7 +1,26 @@
 @import "_vars";
 
+.te-editor {
+    font-size: 17px;
+
+    @media (max-width: 760px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 550px) {
+        font-size: 14px;
+    }
+}
+
 .te-editor__block {
     margin-bottom: 1.5em;
+
+    &:after {
+        content: ' ';
+        clear: both;
+        height: 0;
+        display: table;
+    }
 }
 
 .te-editor__control-panel {
@@ -16,7 +35,7 @@
 
 .te-editor__count {
     color: $blue;
-    font-size: 2em;
+    font-size: 1.4em;
     float: right;
 }
 

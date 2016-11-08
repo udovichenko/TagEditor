@@ -196,6 +196,11 @@
 
         T.ioFormat = function() {
             T.ioText(T.textFormat());
+            T.textCheck();
+            T.textUnique();
+            T.saveTagsFromIo();
+            T.save();
+            T.labelsCreate();
         };
 
         T.textFormat = function() {
@@ -306,13 +311,6 @@
 
         T.attachEvents = function() {
             $(T.ioArea).on('keyup', T.ioKeyup);
-
-            // $(T.buttonCheck).on('click', function() {
-            //     T.textCheck();
-            //     T.textUnique();
-            //     T.count();
-            //     T.save();
-            // });
 
             $(window).on('load', function() {
 
