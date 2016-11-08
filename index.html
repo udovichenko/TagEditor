@@ -13,10 +13,10 @@
     <script src="dist/tageditor.js"></script>
 
     <script>
-        $(function () {
+        $(function() {
             window.myTagEditor = new TagEditor({
                 ioArea: '._tageditor-io',
-                labelsArea: '._tageditor-labels',
+                labelArea: '._tageditor-labels',
                 controlPanel: '._tageditor__controls'
             });
         });
@@ -29,11 +29,12 @@
 
     <div class="te-editor">
         <div class="te-editor__block">
-            <div class="te-editor__controls _tageditor__controls">
-                <!--<div class="tags-button tags-button-separator tags-comma active">,</div>-->
-                <!--<div class="tags-button tags-button-separator tags-semicolon">;</div>-->
-                <!--<button class="te-button te-button_check">Отформатировать</button>-->
-
+            <div class="te-editor__control-panel">
+                <div class="te-editor__controls _tageditor__controls">
+                    <!--<div class="tags-button tags-button-separator tags-comma active">,</div>-->
+                    <!--<div class="tags-button tags-button-separator tags-semicolon">;</div>-->
+                    <!--<button class="te-button te-button_check">Отформатировать</button>-->
+                </div>
                 <div class="te-editor__count"></div>
             </div>
         </div>
@@ -46,13 +47,28 @@
 
         <div class="te-editor__block">
             <div class="te-editor__labels">
-                <textarea class="te-area _tageditor-labels"></textarea>
+                <ul class="te-area _tageditor-labels">
+                    <li class="te-label">
+                        <div class="te-label__text">123</div>
+                        <div class="te-label__remove"></div>
+                    </li>
+                    <li class="te-label">
+                        <div class="te-label__text">345</div>
+                        <div class="te-label__remove"></div>
+                    </li>
+                    <li class="te-label">
+                        <div class="te-label__text">456</div>
+                        <div class="te-label__remove"></div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
-<a href="https://github.com/udovichenko/TagEditor"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<a href="https://github.com/udovichenko/TagEditor"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                                                        src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67"
+                                                        alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
 
 
 </body>

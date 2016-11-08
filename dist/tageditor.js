@@ -7,7 +7,11 @@
 
         T.defaults = {
             separator: ',',
-            buttonClass: 'te-button'
+            buttonClass: 'te-button',
+            counterClass: 'te-editor__count',
+            labelClass: 'te-label',
+            labelTextClass: 'te-label__text',
+            labelRemoveClass: 'te-label__remove'
             //el: '.accordion'
         };
 
@@ -31,6 +35,7 @@
             T.ioArea = $(T.options.ioArea);
             T.labelArea = $(T.options.labelArea);
             T.controlPanel = $(T.options.controlPanel);
+            T.counter = $('.' + T.options.counterClass);
             T.buttonCheck = $('.tags-check');
 
             T.buildControls();
@@ -38,9 +43,54 @@
             T.restore();
             T.textAreaResize();
             T.count();
+
             T.tags = T.getTagsFromText(T.ioText());
 
+            T.labelsInit();
+            T.labelsCreate();
             T.attachEvents();
+        };
+
+        T.labelsInit = function() {
+            console.log(T.labelArea);
+            T.sortable = new Sortable(T.labelArea[0], {
+                // group: "name",  // or { name: "...", pull: [true, false, clone], put: [true, false, array] }
+                // sort: true,  // sorting inside list
+                // delay: 0, // time in milliseconds to define when the sorting should start
+                // disabled: false, // Disables the sortable if set to true.
+                // store: null,  // @see Store
+                animation: 150,  // ms, animation speed moving items when sorting, `0` — without animation
+                // handle: ".my-handle",  // Drag handle selector within list items
+                // filter: ".ignore-elements",  // Selectors that do not lead to dragging (String or Function)
+                // draggable: ".item",  // Specifies which items inside the element should be draggable
+                ghostClass: "te-label_sortable-ghost",  // Class name for the drop placeholder
+                chosenClass: "te-label_sortable-chosen",  // Class name for the chosen item
+                dragClass: "te-label_sortable-drag",  // Class name for the dragging item
+
+                //forceFallback: false  // ig
+                onSort: function() {
+                    T.labelsOnSort();
+                }
+            });
+        };
+
+        T.labelsCreate = function() {
+            T.labelArea.html('');
+            for (var i in T.tags) {
+                T.labelAdd(T.tags[i]);
+            }
+        };
+
+        T.labelsOnSort = function(text) {
+            T.ioFromLabels();
+        };
+
+        T.labelAdd = function(text) {
+            var newLabelText = $('<div>').addClass(T.options.labelTextClass).text(text);
+            var newLabelRemove = $('<div>').addClass(T.options.labelRemoveClass);
+            var newLabel = $('<li>').addClass(T.options.labelClass).append(newLabelText, newLabelRemove);
+            T.labelArea.append(newLabel);
+            $(newLabel).on('click', T.labelRemove);
         };
 
         T.buildControls = function() {
@@ -68,6 +118,25 @@
             });
         };
 
+        T.tagsFromLabels = function() {
+            var labelTags = [];
+
+            var labelList = T.labelArea.find('.' + T.options.labelClass);
+            console.log(labelList + ' <- labelList');
+
+            $(labelList).each(function(i) {
+                var thisLabelText = $(this).find('.' + T.options.labelTextClass).text();
+                thisLabelText = $.trim(thisLabelText);
+
+                if (thisLabelText != '') {
+                    labelTags.push(thisLabelText);
+                }
+            });
+
+            T.tags = labelTags;
+            return labelTags;
+        };
+
         T.getTagsFromText = function(text) {
             // var text = This.textArea.val();
             var textTags = text.split(T.separator);
@@ -84,8 +153,10 @@
             return textTagsClean;
         };
 
-        T.updateTags = function() {
+        T.updateTagsFromIo = function() {
             T.tags = T.getTagsFromText(T.ioText());
+            T.count();
+            T.labelsCreate();
         };
 
         T.textUnique = function() {
@@ -146,7 +217,7 @@
             text = text.replace(/\s/g, ', ');
             T.ioArea.val(text);
             // T.separator = ' ';
-            T.updateTags();
+            T.updateTagsFromIo();
             // T.setSeparator(',');
         };
 
@@ -175,11 +246,12 @@
         T.count = function() {
             var text = T.ioArea.val();
             var textTags = T.getTagsFromText(text);
-            $('.tags-count').text(textTags.length);
+            T.counter.text(textTags.length);
         };
 
         T.saveTagsFromIo = function() {
             T.tags = T.getTagsFromText(T.ioArea.val());
+            T.count();
         };
 
         T.save = function() {
@@ -195,7 +267,26 @@
             T.textChange();
             T.textAreaResize();
             T.count();
+            T.updateTagsFromIo();
             T.save();
+            T.labelsCreate();
+        };
+
+        T.labelRemove = function(e) {
+            var thisLabel = $(e.currentTarget).closest('.' + T.options.labelClass);
+            thisLabel.remove();
+            T.ioFromLabels();
+        };
+
+        T.ioFromTags = function() {
+            var newText = T.tags.join(T.separator);
+            T.ioText(newText);
+        };
+
+        T.ioFromLabels = function() {
+            T.tagsFromLabels();
+            T.ioFromTags();
+            T.ioFormat();
         };
 
         // T.build = function() {
@@ -204,6 +295,8 @@
 
         T.attachEvents = function() {
             $(T.ioArea).on('keyup', T.ioKeyup);
+
+
 
             // $(T.buttonCheck).on('click', function() {
             //     T.textCheck();

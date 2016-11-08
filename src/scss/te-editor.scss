@@ -1,17 +1,21 @@
-@import "vars";
-
+@import "_vars";
 
 .te-editor__block {
     margin-bottom: 1.5em;
 }
 
+.te-editor__control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .tags-areas {
     display: flex;
 }
 
-.tags-count {
-    color: dodgerblue;
+.te-editor__count {
+    color: $blue;
     font-size: 2em;
     float: right;
 }

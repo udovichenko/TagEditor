@@ -1,5 +1,5 @@
 .te-area {
-  border: 3px solid #d2d5d9;
+  border: 3px solid #d2d5dd;
   display: block;
   min-height: 200px;
   width: 100%;
@@ -30,9 +30,13 @@
   transition: .2s;
   padding: .5em 1em;
   font-size: 30px;
-  color: #424549;
+  color: #424559;
   /*width: 50px;*/
-  border: none; }
+  border: none;
+  border-bottom: 3px solid #9aa7b4;
+  border-right: 3px solid #9aa7b4;
+  -webkit-transition: .25s;
+  transition: .25s; }
 
 .te-button:hover {
   background: #bad5f3; }
@@ -43,18 +47,29 @@
 .te-editor__block {
   margin-bottom: 1.5em; }
 
+.te-editor__control-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
 .tags-areas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
-.tags-count {
+.te-editor__count {
   color: dodgerblue;
   font-size: 2em;
   float: right; }
 
 .tags-area {
-  border: 3px solid #d2d5d9;
+  border: 3px solid #d2d5dd;
   display: block;
   min-height: 300px;
   padding: calc(10px + 1vmin);
@@ -68,3 +83,59 @@
 
 .tags-area:last-child {
   margin-right: 0; }
+
+.te-label {
+  position: relative;
+  float: left;
+  margin: .15em .3em .15em 0;
+  list-style-type: none;
+  background: dodgerblue;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.te-label__text {
+  padding: .3em .6em;
+  cursor: -webkit-grab;
+  cursor: grab;
+  -webkit-transition: .25s;
+  transition: .25s; }
+
+.te-label__remove {
+  position: relative;
+  width: 1.54em;
+  height: 1.74em;
+  cursor: pointer;
+  -webkit-transition: .25s;
+  transition: .25s; }
+  .te-label__remove:before, .te-label__remove:after {
+    display: block;
+    content: ' ';
+    position: absolute;
+    background-color: white;
+    height: 2px;
+    width: .8em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto; }
+  .te-label__remove:before {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); }
+  .te-label__remove:after {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
+  .te-label__remove:hover {
+    background-color: #cd3e43; }
+
+.te-label:hover {
+  background: #57baff; }
+
+.te-label_sortable-ghost {
+  opacity: .15; }
+
+.te-label_sortable-drag {
+  background: #c547c3 !important;
+  opacity: 1 !important; }
