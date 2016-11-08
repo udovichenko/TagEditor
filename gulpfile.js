@@ -29,7 +29,7 @@ gulp.task('server', function() {
 
 gulp.task('css', function () {
     // console.log('gulp.task(css');
-    gulp.src(['src/scss/**/*.scss'])
+    return gulp.src(['src/scss/**/*.scss'])
         .pipe(concat('tageditor.css'))
         //.pipe(sourcemaps.init())
         //.pipe(rigger()) //Прогоним через rigger
@@ -51,18 +51,18 @@ gulp.task('css', function () {
 
 gulp.task('watch', function(){
     watch(['**/*.html'], function(event, cb) {
-        browserSync.reload();
+        reload();
     });
     watch(['src/scss/**/*.scss'], function(event, cb) {
         gulp.start('css');
     });
     watch(['**/*.js'], function(event, cb) {
-        browserSync.reload();
+        reload();
     });
 });
 
 gulp.task('libsConcat', function () {
-    gulp.src(['src/libs.js']) //Найдем наш main файл
+    return gulp.src(['src/libs.js']) //Найдем наш main файл
         .pipe(rigger()) //Прогоним через rigger
         .pipe(uglify()) //Сожмем наш js
         .pipe(gulp.dest('demo/js')); //Выплюнем готовый файл в build

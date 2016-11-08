@@ -2,12 +2,13 @@
 
 .te-area {
     border: 3px solid $grey-l;
+    //border: 3px solid yellow;
     display: block;
     min-height: 200px;
     width: 100%;
     padding: calc(10px + 1vmin);
     flex: 50% 1 1;
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: 600;
     margin-right: calc(10px + 3vmin);
     resize: none;

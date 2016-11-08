@@ -31,6 +31,9 @@
         T.tags = [];
         T.separator = T.options.separator;
 
+        // TODO Resize LABEL AREA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // TODO Копирование в буфер
+
         T.init = function() {
             T.ioArea = $(T.options.ioArea);
             T.labelArea = $(T.options.labelArea);
@@ -91,6 +94,14 @@
             var newLabel = $('<li>').addClass(T.options.labelClass).append(newLabelText, newLabelRemove);
             T.labelArea.append(newLabel);
             $(newLabel).on('click', T.labelRemove);
+
+            newLabelRemove
+                .on('mouseover', function() {
+                    newLabel.addClass('te-label_remove-hover');
+                })
+                .on('mouseout', function() {
+                    newLabel.removeClass('te-label_remove-hover');
+                });
         };
 
         T.buildControls = function() {
@@ -295,8 +306,6 @@
 
         T.attachEvents = function() {
             $(T.ioArea).on('keyup', T.ioKeyup);
-
-
 
             // $(T.buttonCheck).on('click', function() {
             //     T.textCheck();
