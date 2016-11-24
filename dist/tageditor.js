@@ -172,6 +172,7 @@
 
         T.textUnique = function() {
             var text = T.ioText();
+            text = text.toLowerCase();
             var textTags = T.getTagsFromText(text);
             textTags = T.unique(textTags);
             T.ioArea.val(textTags.join(T.separator + ' '));
