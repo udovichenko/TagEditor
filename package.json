@@ -2,10 +2,6 @@
   "name": "tageditor",
   "version": "0.0.1",
   "description": "smart tag editor with drag-n-drop",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/udovichenko/TagEditor"
@@ -20,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/udovichenko/TagEditor/issues"
   },
-  "homepage": "https://github.com/udovichenko/TagEditor",
+  "homepage": "https://udovichenko.github.io/TagEditor/",
   "dependencies": {
     "autosize": "^3.0.18",
     "jquery": "^3.1.1",
@@ -35,7 +31,8 @@
     "gulp-cssnano": "^2.1.2",
     "gulp-rename": "^1.2.2",
     "gulp-rigger": "^0.5.8",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "latest",
+    "node-sass": "latest",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.10"
   }

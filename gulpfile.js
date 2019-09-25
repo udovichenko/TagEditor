@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload;
 
+sass.compiler = require('node-sass');
+
 gulp.task('server', function() {
     browserSync({
         server: {
